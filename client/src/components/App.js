@@ -16,6 +16,23 @@ function App() {
       .then((r) => r.json())
       .then((messages) => setMessages(messages));
   }, []);
+//   We can throw much more into our chain here- for instance, 
+//   if we're looking for a "200: OK" response from the server:
+//   // client/src/components/App.js
+
+// function App() {
+//   ...
+//   useEffect(() => {
+//     fetch("http://127.0.0.1:5555/messages")
+//       .then(r => {
+//         if (r.ok) {
+//           return r.json()
+//         }
+//         throw r;
+//       })
+//       .then((messages) => setMessages(messages))
+//   }, []);
+//   ...
 
   function handleAddMessage(newMessage) {
     setMessages([...messages, newMessage]);
